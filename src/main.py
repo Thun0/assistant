@@ -4,6 +4,7 @@ from model import Model
 from controller import Controller
 import pygame
 import queue
+from threading import Thread
 
 def main():
     Log.init()
@@ -14,7 +15,12 @@ def main():
     view = View(eventQueue)
     model = Model()
     controller = Controller(eventQueue, model, view)
-    controller.start()
+    controllerThread = Thread(target = controller.loop)
+    controllerThread.daemon = True
+    controllerThread.start()
+    view.loop()
+    pygame.quit()
+    Log.i("Quitting")
     Log.dispose()
 
 if __name__ == "__main__":
