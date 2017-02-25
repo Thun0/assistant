@@ -3,8 +3,8 @@ class Log:
     outFile = None
 
     @staticmethod
-    def init(outPath = None):
-        if outPath != None:
+    def init(outPath=None):
+        if outPath is not None:
             Log.outFile = open(outPath, "w")
 
     @staticmethod
@@ -21,12 +21,12 @@ class Log:
 
     @staticmethod
     def write(str):
-        if Log.outFile != None:
+        if Log.outFile is not None:
             Log.outFile.write(str)
         else:
             print(str)
 
     @staticmethod
     def dispose():
-        if Log.outFile != None:
+        if Log.outFile is not None:
             Log.outFile.close()

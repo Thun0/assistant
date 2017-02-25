@@ -4,5 +4,5 @@ class Controller():
         pass
 
     def loop(self):
-        while(True):
+        while True:
             pass

@@ -6,6 +6,7 @@ import pygame
 import queue
 from threading import Thread
 
+
 def main():
     Log.init()
     Log.i("Log start")
@@ -15,7 +16,7 @@ def main():
     view = View(eventQueue)
     model = Model()
     controller = Controller(eventQueue, model, view)
-    controllerThread = Thread(target = controller.loop)
+    controllerThread = Thread(target=controller.loop)
     controllerThread.daemon = True
     controllerThread.start()
     view.loop()

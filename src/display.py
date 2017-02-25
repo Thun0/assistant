@@ -2,6 +2,7 @@ from log import Log
 from settings import Settings
 import pygame
 
+
 class Display:
 
     def __init__(self):
