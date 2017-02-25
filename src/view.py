@@ -12,7 +12,6 @@ class View:
         self.running = True
         self.clock = Clock()
 
-
     def loop(self):
         while self.running:
             self.handleInput()
