@@ -1,13 +1,17 @@
-from view import View
-from log import Log
-from model import Model
-from controller import Controller
-import pygame
 import queue
 from threading import Thread
 
+import pygame
+
+from controller import Controller
+from log import Log
+from model import Model
+from view import View
+
+from weather import Weather
 
 def main():
+    w = Weather()
     Log.init()
     Log.i("Log start")
     pygame.init()
