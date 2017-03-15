@@ -1,4 +1,5 @@
 import requests
+import pygame
 
 class Weather:
 
@@ -21,3 +22,22 @@ class Weather:
         self.pressure = data["main"]["pressure"]
         self.humidity = data["main"]["humidity"]
         self.temperature = data["main"]["temp"]
+        self.conditionId = data["weather"][0]["id"]
+        self.time = data["dt"]
+        self.sunrise = data["sys"]["sunrise"]
+        self.sunset = data["sys"]["sunset"]
+        if self.time > self.sunrise and self.time < self.sunset:
+            self.night = False
+        else:
+            self.night = True
+        print(data)
+
+    def getIcon(self):
+        if self.conditionId > 800 and self.conditionId < 900:
+            icon = pygame.image.load("../res/weather/clouds.png")
+        else:
+            if self.night:
+                icon = pygame.image.load("../res/weather/moon.png")
+            else:
+                icon = pygame.image.load("../res/weather/sun.png")
+        return icon

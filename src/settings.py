@@ -14,3 +14,9 @@ class Settings:
     DATE_X = 20
     DATE_Y = 200
     CLOCK_COLOR = (255, 255, 255)
+    WEATHER_X = 400
+    WEATHER_Y = 30
+    TEMPERATURE_FONT = "freeserif"
+    TEMPERATURE_FONT_SIZE = 50
+    WEATHER_DESCRIPTION_FONT = "freeserif"
+    WEATHER_DESCRIPTION_FONT_SIZE = 20

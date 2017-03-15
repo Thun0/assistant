@@ -1,6 +1,7 @@
 from display import Display
 from log import Log
 from clock import Clock
+from weatherview import WeatherView
 import pygame
 
 
@@ -11,6 +12,7 @@ class View:
         self.display = Display()
         self.running = True
         self.clock = Clock()
+        self.weatherView = WeatherView()
 
     def loop(self):
         while self.running:
@@ -21,6 +23,7 @@ class View:
         self.display.blit()
         self.clock.update()
         self.clock.blit(self.display)
+        self.weatherView.blit(self.display)
         pygame.display.flip()
 
     def handleInput(self):
