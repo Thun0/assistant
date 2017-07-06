@@ -4,19 +4,19 @@ from clock import Clock
 from weatherview import WeatherView
 import pygame
 
-
 class View:
 
-    def __init__(self, eventQueue):
+    def __init__(self, event_queue):
         Log.i("Creating view")
         self.display = Display()
         self.running = True
         self.clock = Clock()
         self.weatherView = WeatherView()
+        self.event_queue = event_queue
 
     def loop(self):
         while self.running:
-            self.handleInput()
+            self.handle_input()
             self.redraw()
 
     def redraw(self):
@@ -26,9 +26,11 @@ class View:
         self.weatherView.blit(self.display)
         pygame.display.flip()
 
-    def handleInput(self):
+    def handle_input(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 Log.i("Close button clicked")
                 self.running = False
                 Log.i("Closing display")
+            else:
+                self.event_queue.put(event)

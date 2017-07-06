@@ -9,7 +9,10 @@ class Display:
         Log.i("Creating display")
         self.resolution = (Settings.DISPLAY_WIDTH, Settings.DISPLAY_HEIGHT)
         pygame.display.set_caption(Settings.APP_NAME)
-        self.screen = pygame.display.set_mode(self.resolution)
+        if Settings.FULLSCREEN:
+            self.screen = pygame.display.set_mode(self.resolution, pygame.FULLSCREEN)
+        else:
+            self.screen = pygame.display.set_mode(self.resolution)
         self.background = pygame.Surface(self.screen.get_size())
         self.background.fill(Settings.BG_COLOR)
         self.background = self.background.convert()
