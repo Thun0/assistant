@@ -3,6 +3,7 @@ import pygame
 import datetime
 import calendar
 
+
 class Clock:
 
     def __init__(self):
@@ -40,7 +41,6 @@ class Clock:
         self.dayOfWeekText = calendar.day_name[datetime.datetime.today().weekday()]
         self.dateSurface = self.dateFont.render(self.dateText, True, self.color)
         self.dayOfWeekSurface = self.dateFont.render(self.dayOfWeekText, True, self.color)
-
 
     def blit(self, display):
         display.screen.blit(self.clockSurface, (self.clockX, self.clockY))

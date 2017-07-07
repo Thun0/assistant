@@ -1,18 +1,22 @@
 import requests
 import pygame
-import threading
+
 
 class Weather:
 
-    #windSpeed = 0
-    #windAngle = 0
-    #pressure = 0
-    #humidity = 0
-    #temperature = 0
-    #description = ""
-
     def __init__(self):
         self.get_weather()
+        self.windSpeed = 0
+        self.windAngle = 0
+        self.description = "No description"
+        self.pressure = 0
+        self.humidity = 0
+        self.temperature = 666
+        self.conditionId = -1
+        self.time = 0
+        self.sunrise = 0
+        self.sunset = 0
+        self.night = False
 
     def get_weather(self):
         r = requests.get("http://api.openweathermap.org/data/2.5/weather?id=756135&units=metric&APPID=44b6fc9fc97832f9c8bb1ffcf639b4c4")
@@ -27,14 +31,14 @@ class Weather:
         self.time = data["dt"]
         self.sunrise = data["sys"]["sunrise"]
         self.sunset = data["sys"]["sunset"]
-        if self.time > self.sunrise and self.time < self.sunset:
+        if self.sunset > self.time > self.sunrise:
             self.night = False
         else:
             self.night = True
         print(data)
 
     def get_icon(self):
-        if self.conditionId > 800 and self.conditionId < 900:
+        if 900 > self.conditionId > 800:
             icon = pygame.image.load("../res/weather/clouds.png")
         else:
             if self.night:

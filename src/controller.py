@@ -1,5 +1,6 @@
 import event_types
 
+
 class Controller():
 
     def __init__(self, event_queue, model, view):

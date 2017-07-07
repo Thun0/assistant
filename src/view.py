@@ -2,7 +2,10 @@ from display import Display
 from log import Log
 from clock import Clock
 from weatherview import WeatherView
+from weather import Weather
 import pygame
+import event_types
+
 
 class View:
 
@@ -11,8 +14,9 @@ class View:
         self.display = Display()
         self.running = True
         self.clock = Clock()
-        self.weatherView = WeatherView()
+        self.weatherView = WeatherView(Weather())
         self.event_queue = event_queue
+        pygame.time.set_timer(event_types.WEATHER_UPDATE_EVENT, 1000*60*5)
 
     def loop(self):
         while self.running:
@@ -32,5 +36,7 @@ class View:
                 Log.i("Close button clicked")
                 self.running = False
                 Log.i("Closing display")
+            elif event.type == event_types.WEATHER_UPDATE_EVENT:
+                self.weatherView.update()
             else:
                 self.event_queue.put(event)

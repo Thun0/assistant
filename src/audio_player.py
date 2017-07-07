@@ -22,6 +22,11 @@ class AudioPlayer:
         print(audiofile)
         #print(audiofile.tag.title)
 
+    def loop(self):
+        Log.i("Audio player started")
+        while True:
+            pass
+
     def play_audio(self):
         pass
 

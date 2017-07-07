@@ -1,19 +1,21 @@
 from weather import Weather
 from settings import Settings
 import pygame
+from view_component import ViewComponent
 
-class WeatherView:
 
-    def __init__(self):
+class WeatherView(ViewComponent):
+
+    def __init__(self, weather):
         self.x = Settings.WEATHER_X
         self.y = Settings.WEATHER_Y
-        self.weather = Weather()
+        self.weather = weather
         self._conditions_icon = self.weather.get_icon()
 
         self._temperature_font = pygame.font.SysFont(Settings.TEMPERATURE_FONT, int(Settings.TEMPERATURE_FONT_SIZE))
         self._weather_description_font = pygame.font.SysFont(Settings.WEATHER_DESCRIPTION_FONT, int(Settings.WEATHER_DESCRIPTION_FONT_SIZE))
 
-        self._outside_temperature_view = self._temperature_font.render("Outside: " + str(self.weather.temperature) + " \u00b0C", True, (255, 255, 255))
+        self._outside_temp_view = self._temperature_font.render("Outside: " + str(self.weather.temperature) + " \u00b0C", True, (255, 255, 255))
 
     def update(self):
         self.weather.get_weather()
@@ -21,4 +23,4 @@ class WeatherView:
 
     def blit(self, display):
         display.screen.blit(self._conditions_icon, (self.x, self.y))
-        display.screen.blit(self._outside_temperature_view, (self.x, self.y + 300))
+        display.screen.blit(self._outside_temp_view, (self.x, self.y + 300))

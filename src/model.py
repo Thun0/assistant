@@ -1,5 +1,6 @@
 from weather import Weather
 
+
 class Model:
 
     def __init__(self):
