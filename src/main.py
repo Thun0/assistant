@@ -1,14 +1,22 @@
 import queue
+import pygame
+import argparse
+
 from threading import Thread
 
-import pygame
 from controller import Controller
 from log import Log
 from model import Model
 from view import View
+from settings import Settings
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--fullscreen", help="runs in fullscreen", action="store_true")
+    args = parser.parse_args()
+    if args.fullscreen:
+        Settings.FULLSCREEN = True
     Log.init()
     Log.i("Log start")
     pygame.init()

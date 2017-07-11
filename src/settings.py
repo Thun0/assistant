@@ -1,5 +1,7 @@
 class Settings:
 
+    AUDIO_PLAYER_X = 30
+    AUDIO_PLAYER_Y = 400
     MAX_FPS = 60
     DISPLAY_WIDTH = 1024
     DISPLAY_HEIGHT = 600

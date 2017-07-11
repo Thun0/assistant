@@ -20,7 +20,7 @@ class AudioPlayer:
     def get_tag_info(self, filepath):
         audiofile = eyed3.load(filepath)
         print(audiofile)
-        #print(audiofile.tag.title)
+        # print(audiofile.tag.title)
 
     def loop(self):
         Log.i("Audio player started")

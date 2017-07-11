@@ -5,7 +5,6 @@ import pygame
 class Weather:
 
     def __init__(self):
-        self.get_weather()
         self.windSpeed = 0
         self.windAngle = 0
         self.description = "No description"
@@ -17,6 +16,8 @@ class Weather:
         self.sunrise = 0
         self.sunset = 0
         self.night = False
+
+        self.get_weather()
 
     def get_weather(self):
         r = requests.get("http://api.openweathermap.org/data/2.5/weather?id=756135&units=metric&APPID=44b6fc9fc97832f9c8bb1ffcf639b4c4")
