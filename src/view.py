@@ -19,6 +19,7 @@ class View:
         pygame.time.set_timer(event_types.WEATHER_UPDATE_EVENT, 1000*60*5)
 
     def loop(self):
+        Log.i("View loop started")
         while self.running:
             self.handle_input()
             self.redraw()

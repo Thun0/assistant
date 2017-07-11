@@ -3,6 +3,7 @@ from gi.overrides import override
 
 from view_component import ViewComponent
 
+
 class Button(ViewComponent):
 
     def __init__(self, path):

@@ -1,6 +1,6 @@
 import requests
 import pygame
-
+from log import Log
 
 class Weather:
 
@@ -16,7 +16,7 @@ class Weather:
         self.sunrise = 0
         self.sunset = 0
         self.night = False
-
+        Log.i("Weather object created")
         self.get_weather()
 
     def get_weather(self):
@@ -36,7 +36,8 @@ class Weather:
             self.night = False
         else:
             self.night = True
-        print(data)
+        Log.i("Weather updated")
+        Log.i(str(data))
 
     def get_icon(self):
         if 900 > self.conditionId > 800:

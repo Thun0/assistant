@@ -32,6 +32,3 @@ class AudioPlayer:
 
     def audio_loop(self):
         pass
-
-    def test(self):
-        self.load_and_play_audio_file("/home/thun/workspace/assistant/music.mp3")

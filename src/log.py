@@ -22,7 +22,7 @@ class Log:
     @staticmethod
     def write(str):
         if Log.outFile is not None:
-            Log.outFile.write(str)
+            Log.outFile.write(str + "\n")
         else:
             print(str)
 
